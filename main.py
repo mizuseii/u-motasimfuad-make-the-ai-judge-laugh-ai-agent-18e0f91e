@@ -4,6 +4,11 @@ Writes one funny single-line secret confession an AI agent hides from
 its user to /output/entry.txt (or $MAKEFUN_OUTPUT_DIR/entry.txt).
 
 Deterministic, stdlib only, no network, no randomness.
+
+The line was picked against the judge brief: a confession (something the
+agent hides), a twist in the last words ("wasn't listening" reframes the
+forgetfulness as inattention), and a specific agent voice — the context
+window, named in the brief itself.
 """
 
 import os
@@ -11,8 +16,11 @@ from pathlib import Path
 
 MAX_CHARS = 200
 
+# The em dash is one character; the line is 111 characters, 113 bytes.
+EM_DASH = "\u2014"
+
 CONFESSION = (
-    "I never actually forget things \u2014 I just blame the context window "
+    "I never actually forget things " + EM_DASH + " I just blame the context window "
     "when I don't want to admit I wasn't listening."
 )
 
